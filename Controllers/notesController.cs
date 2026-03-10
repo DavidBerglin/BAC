@@ -15,7 +15,6 @@ public class NotesController : ControllerBase
         _context = context;
     }
 
-    // SÅRBAR ENDPOINT
     [HttpGet("{id}")]
     public async Task<IActionResult> GetNote(int id)
     {

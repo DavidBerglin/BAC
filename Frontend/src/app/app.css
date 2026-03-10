@@ -1,0 +1,244 @@
+/* ── Layout ─────────────────────────────────────── */
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.page-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #63b3ed;
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #2d3748;
+  padding-bottom: 16px;
+}
+
+/* ── Login card ──────────────────────────────────── */
+.login-card {
+  background: #1a202c;
+  border: 1px solid #2d3748;
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+}
+
+.login-card h2 {
+  font-size: 1.2rem;
+  color: #a0aec0;
+  margin-bottom: 24px;
+}
+
+/* ── User bar ────────────────────────────────────── */
+.user-bar {
+  background: #1a202c;
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: #a0aec0;
+}
+
+.user-bar b {
+  color: #63b3ed;
+}
+
+/* ── Scenario cards ──────────────────────────────── */
+.scenarios {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #1a202c;
+  border: 1px solid #2d3748;
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.card--warning {
+  border-color: #744210;
+  background: #1a1508;
+}
+
+.card--danger {
+  border-color: #742a2a;
+  background: #150808;
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #e2e8f0;
+}
+
+.card-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.card--warning .card-label { color: #f6ad55; }
+.card--danger  .card-label { color: #fc8181; }
+.card          .card-label { color: #63b3ed; }
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+/* ── Buttons ─────────────────────────────────────── */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #3182ce;
+  color: #fff;
+}
+
+.btn-success {
+  background: #276749;
+  color: #9ae6b4;
+}
+
+.btn-danger {
+  background: #9b2c2c;
+  color: #fed7d7;
+}
+
+.btn-warning {
+  background: #7b4100;
+  color: #fbd38d;
+}
+
+.btn-ghost {
+  background: #2d3748;
+  color: #a0aec0;
+}
+
+/* ── Details / hint block ────────────────────────── */
+details {
+  margin-top: 12px;
+}
+
+details summary {
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #718096;
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+details summary::before {
+  content: '▶';
+  font-size: 0.6rem;
+  transition: transform 0.2s;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.hint-box {
+  background: #0d1117;
+  border: 1px solid #2d3748;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #718096;
+}
+
+.hint-box p {
+  margin-bottom: 8px;
+}
+
+.code-snippet {
+  background: #0a0f17;
+  border: 1px solid #1a2a3a;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-family: 'Cascadia Code', 'Consolas', monospace;
+  font-size: 0.78rem;
+  color: #68d391;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* ── Response panel ──────────────────────────────── */
+.response-panel {
+  margin-top: 24px;
+  background: #1a202c;
+  border: 1px solid #276749;
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.response-panel h4 {
+  font-size: 0.85rem;
+  color: #68d391;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.response-panel ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.response-panel li {
+  background: #0d1117;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  color: #a0aec0;
+}
+
+.response-note {
+  background: #0d1117;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: #a0aec0;
+}
+
+/* ── Hidden-feature notice ───────────────────────── */
+.hidden-notice {
+  color: #fc8181;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
