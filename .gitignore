@@ -1,0 +1,45 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio
+.vs/
+.vscode/
+
+# Frontend - Angular
+Frontend/node_modules/
+Frontend/dist/
+Frontend/tmp/
+Frontend/out-tsc/
+Frontend/bazel-out/
+Frontend/.angular/
+Frontend/npm-debug.log
+Frontend/yarn-error.log
+Frontend/.sass-cache/
+Frontend/connect.lock
+Frontend/coverage/
+Frontend/libpeerconnection.log
+Frontend/testem.log
+Frontend/typings/
+
+# System files
+.DS_Store
+Thumbs.db

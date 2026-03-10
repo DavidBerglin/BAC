@@ -1,0 +1,59 @@
+<div style="padding: 20px; font-family: sans-serif;">
+  <h1>Säkerhetslabb: Broken Access Control</h1>
+
+  <div *ngIf="!currentUser" style="border: 2px solid #ccc; padding: 20px; text-align: center;">
+    <h2>Vem vill du logga in som?</h2>
+    <button (click)="login('Olle', 0)">Olle (User)</button>
+    <button (click)="login('Admin', 1)" style="margin-left: 10px;">Admin (Admin)</button>
+  </div>
+
+  <div *ngIf="currentUser">
+    <div style="background: #eee; padding: 10px; margin-bottom: 20px;">
+      Inloggad som: <b>{{ currentUser }}</b> | <button (click)="logout()">Logga ut</button>
+    </div>
+
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+      <h3>Scenario 1: IDOR</h3>
+      <button (click)="getNote(1)">Visa Anteckning 1</button>
+      <button [disabled]="currentUser !== 'Admin'" (click)="getNote(2)">Hämta Anteckning 2</button>
+
+      <details style="margin-top: 10px; background: #fff5f5; padding: 5px;">
+        <summary>Visa hur man anropar något som är låst bakom frontend</summary>
+        <p>Kör detta i konsolen:</p>
+        <p style="background: #222; color: #0f0; padding: 10px; border-radius: 5px;">
+        <span [innerText]="fetch"></span>
+        </p>
+      </details>
+    </div>
+
+<div style="border: 1px solid red; padding: 10px; margin-bottom: 10px;">
+  <h3>Scenario 2: Privilege Escalation</h3>
+
+  <button (click)="getAllNotes()">Admin: Visa allt</button>
+
+  <details style="margin-top: 10px; background: #fff5f5; padding: 5px;">
+    <summary>Visa hur man anropar något som är låst bakom frontend</summary>
+    <p>Kör detta i konsolen för att "ljuga" om att du är Admin:</p>
+    <p style="background: #222; color: #0f0; padding: 10px; border-radius: 5px; font-family: monospace;">
+      <span [innerText]="adminFetchAll"></span>
+    </p>
+  </details>
+</div>
+
+    <div style="border: 2px double orange; padding: 10px;">
+      <h3>Scenario 3: Hemlig Export</h3>
+      <button *ngIf="userRole === 1" (click)="exportData()">Export (Admin)</button>
+      <p *ngIf="userRole === 0" style="color: red;">Export-knappen är dold för dig.</p>
+    </div>
+
+    <div *ngIf="note || allNotes.length > 0" style="margin-top: 20px; background: lightyellow; padding: 10px;">
+      <h4>Server-svar:</h4>
+      <div *ngIf="note">
+        {{ note.content }} (Ägare: {{ note.ownerId }})
+      </div>
+      <ul *ngIf="allNotes.length > 0">
+        <li *ngFor="let n of allNotes">{{ n.ownerId }}: {{ n.content }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
